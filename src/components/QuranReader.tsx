@@ -50,7 +50,7 @@ const QuranReader = () => {
     loadQuranData();
   }, []);
   
-  if (loading || !quranData || quranData.length === 0) {
+  if (loading || !quranData || !Array.isArray(quranData) || quranData.length === 0) {
     return (
       <div className="flex items-center justify-center p-8">
         <div className="text-lg text-muted-foreground">Loading the Noble Quran...</div>
