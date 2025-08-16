@@ -20,9 +20,7 @@ interface QuranChapter {
   verses: QuranVerse[];
 }
 
-interface QuranData {
-  chapters: QuranChapter[];
-}
+type QuranData = QuranChapter[];
 
 const QuranReader = () => {
   const [selectedSurah, setSelectedSurah] = useState(1);
@@ -33,11 +31,17 @@ const QuranReader = () => {
   useEffect(() => {
     const loadQuranData = async () => {
       try {
-        const response = await fetch('/src/data/quran.json');
+        const response = await fetch('/quran_en.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data: QuranData = await response.json();
+        console.log('Quran data loaded:', data);
         setQuranData(data);
       } catch (error) {
         console.error('Error loading Quran data:', error);
+        // Fallback to empty data structure to prevent crashes
+        setQuranData([]);
       } finally {
         setLoading(false);
       }
@@ -46,7 +50,7 @@ const QuranReader = () => {
     loadQuranData();
   }, []);
   
-  if (loading || !quranData) {
+  if (loading || !quranData || quranData.length === 0) {
     return (
       <div className="flex items-center justify-center p-8">
         <div className="text-lg text-muted-foreground">Loading the Noble Quran...</div>
@@ -54,7 +58,7 @@ const QuranReader = () => {
     );
   }
   
-  const currentSurah = quranData.chapters.find(chapter => chapter.id === selectedSurah) || quranData.chapters[0];
+  const currentSurah = quranData.find(chapter => chapter.id === selectedSurah) || quranData[0];
   const versesPerPage = 5;
   const totalPages = Math.ceil(currentSurah.verses.length / versesPerPage);
   const startIndex = currentPage * versesPerPage;
@@ -80,7 +84,7 @@ const QuranReader = () => {
                 <SelectValue placeholder="Select a Surah" />
               </SelectTrigger>
               <SelectContent>
-                {quranData.chapters.map((chapter) => (
+                {quranData.map((chapter) => (
                   <SelectItem key={chapter.id} value={chapter.id.toString()}>
                     {chapter.id}. {chapter.name} - {chapter.translation}
                   </SelectItem>
