@@ -52,6 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				islamic: {
+					primary: 'hsl(var(--islamic-primary))',
+					'primary-light': 'hsl(var(--islamic-primary-light))',
+					gold: 'hsl(var(--islamic-gold))',
+					'gold-light': 'hsl(var(--islamic-gold-light))',
+					cream: 'hsl(var(--islamic-cream))',
+					sage: 'hsl(var(--islamic-sage))',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -67,6 +75,15 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-gold': 'var(--gradient-gold)',
+				'gradient-subtle': 'var(--gradient-subtle)',
+			},
+			boxShadow: {
+				'islamic': 'var(--shadow-islamic)',
+				'gold': 'var(--shadow-gold)',
 			},
 			keyframes: {
 				'accordion-down': {
