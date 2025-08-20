@@ -5,6 +5,7 @@ import PrayerTracker from "@/components/PrayerTracker";
 import FastingTracker from "@/components/FastingTracker";
 import TasbihCounter from "@/components/TasbihCounter";
 import ThemeToggle from "@/components/ThemeToggle";
+import MoreFeatures from "@/components/MoreFeatures";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("quran");
@@ -37,7 +38,10 @@ const Index = () => {
               Your spiritual journey, beautifully guided
             </p>
           </div>
-          <ThemeToggle />
+          <div className="flex gap-2">
+            <MoreFeatures />
+            <ThemeToggle />
+          </div>
         </div>
 
         {/* Navigation */}

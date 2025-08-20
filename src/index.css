@@ -120,3 +120,10 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Arabic Font Support */
+.font-arabic {
+  font-family: 'Amiri', 'Times New Roman', serif;
+  direction: rtl;
+}
+}
