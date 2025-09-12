@@ -9,6 +9,15 @@ import NotFound from "./pages/NotFound";
 import DuaPage from "./pages/DuaPage";
 import Names99Page from "./pages/Names99Page";
 import ComingSoonPage from "./pages/ComingSoonPage";
+import QuranAudioPage from "./pages/QuranAudioPage";
+import EighteenSurahsPage from "./pages/EighteenSurahsPage";
+import HadithsPage from "./pages/HadithsPage";
+import KalimasPage from "./pages/KalimasPage";
+import CalendarPage from "./pages/CalendarPage";
+import BenefitsPage from "./pages/BenefitsPage";
+import ZakatCalculatorPage from "./pages/ZakatCalculatorPage";
+import QiblaDirectionPage from "./pages/QiblaDirectionPage";
+import FivePillarsPage from "./pages/FivePillarsPage";
 import { 
   Volume2, 
   BookOpen, 
@@ -40,21 +49,23 @@ const App = () => (
             <Route path="/dua" element={<DuaPage />} />
             <Route path="/99-names" element={<Names99Page />} />
             
+            {/* Islamic Feature Pages */}
+            <Route path="/quran-audio" element={<QuranAudioPage />} />
+            <Route path="/18-surahs" element={<EighteenSurahsPage />} />
+            <Route path="/hadiths" element={<HadithsPage />} />
+            <Route path="/kalimas" element={<KalimasPage />} />
+            <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/benefits" element={<BenefitsPage />} />
+            <Route path="/zakat" element={<ZakatCalculatorPage />} />
+            <Route path="/qibla" element={<QiblaDirectionPage />} />
+            <Route path="/5-pillars" element={<FivePillarsPage />} />
+            
             {/* Coming Soon Pages */}
-            <Route path="/quran-audio" element={<ComingSoonPage title="Quran Audio" icon={<Volume2 className="h-8 w-8 text-islamic-primary" />} description="Listen to beautiful Quran recitations by renowned reciters." />} />
-            <Route path="/18-surahs" element={<ComingSoonPage title="18 Easiest Surahs" icon={<BookOpen className="h-8 w-8 text-islamic-primary" />} description="Short surahs perfect for memorization and daily prayers." />} />
-            <Route path="/hadiths" element={<ComingSoonPage title="Hadiths" icon={<BookOpen className="h-8 w-8 text-islamic-primary" />} description="Collection of authentic Prophetic traditions and sayings." />} />
-            <Route path="/kalimas" element={<ComingSoonPage title="Kalimas" icon={<Star className="h-8 w-8 text-islamic-primary" />} description="The six fundamental Islamic declarations of faith." />} />
-            <Route path="/calendar" element={<ComingSoonPage title="Islamic Calendar" icon={<Calendar className="h-8 w-8 text-islamic-primary" />} description="Hijri calendar with important Islamic dates and events." />} />
             <Route path="/prayer-schedule" element={<ComingSoonPage title="Prayer Schedule" icon={<Clock className="h-8 w-8 text-islamic-primary" />} description="Accurate prayer times based on your location." />} />
             <Route path="/prayer-tracker" element={<ComingSoonPage title="Prayer Tracker" icon={<Clock className="h-8 w-8 text-islamic-primary" />} description="Track and monitor your daily prayers." />} />
             <Route path="/islamic-fasting" element={<ComingSoonPage title="Islamic Fasting" icon={<Calendar className="h-8 w-8 text-islamic-primary" />} description="Complete guide to Islamic fasting rules and benefits." />} />
             <Route path="/tasbih" element={<ComingSoonPage title="Digital Tasbih" icon={<Zap className="h-8 w-8 text-islamic-primary" />} description="Digital prayer beads for dhikr and remembrance." />} />
             <Route path="/breath" element={<ComingSoonPage title="Breathing Exercises" icon={<Wind className="h-8 w-8 text-islamic-primary" />} description="Islamic breathing techniques for meditation and relaxation." />} />
-            <Route path="/qibla" element={<ComingSoonPage title="Qibla Direction" icon={<Compass className="h-8 w-8 text-islamic-primary" />} description="Find the correct direction for prayer using your location." />} />
-            <Route path="/zakat" element={<ComingSoonPage title="Zakat Calculator" icon={<DollarSign className="h-8 w-8 text-islamic-primary" />} description="Calculate your obligatory charity (Zakat) accurately." />} />
-            <Route path="/benefits" element={<ComingSoonPage title="Islamic Benefits" icon={<Star className="h-8 w-8 text-islamic-primary" />} description="Learn about the benefits and rewards of Islamic practices." />} />
-            <Route path="/5-pillars" element={<ComingSoonPage title="5 Pillars of Islam" icon={<Star className="h-8 w-8 text-islamic-primary" />} description="Complete guide to the five fundamental pillars of Islam." />} />
             <Route path="/islamic-tv" element={<ComingSoonPage title="Live Islamic TV" icon={<Tv className="h-8 w-8 text-islamic-primary" />} description="Watch live Islamic channels and educational content." />} />
             <Route path="/stories" element={<ComingSoonPage title="Islamic Stories" icon={<BookOpen className="h-8 w-8 text-islamic-primary" />} description="Inspirational stories from Islamic history and tradition." />} />
             <Route path="/images" element={<ComingSoonPage title="Islamic Images" icon={<Image className="h-8 w-8 text-islamic-primary" />} description="Beautiful Islamic art, calligraphy, and photography." />} />
