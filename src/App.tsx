@@ -15,18 +15,18 @@ const App = () => (
     <QueryClientProvider client={queryClient}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
             {/* <TooltipProvider> */}
-                <Toaster />
-                <Sonner />
-                <BrowserRouter>
-                    <Routes>
-                        <Route path="/" element={<Index />} />
-                        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                        <Route path="*" element={<NotFound />} />
+            <Toaster />
+            <Sonner />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Index />} />
+                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
-                
+
                 {/* Footer appears on all pages */}
                 <Footer />
-                </BrowserRouter>
+            </BrowserRouter>
             {/* </TooltipProvider> */}
         </ThemeProvider>
     </QueryClientProvider>
