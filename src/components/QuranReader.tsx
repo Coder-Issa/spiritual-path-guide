@@ -50,19 +50,42 @@ const QuranReader = () => {
     loadQuranData();
   }, []);
 
-  if (loading || !quranData || !Array.isArray(quranData) || quranData.length === 0) {
+  // if (loading || !quranData || !Array.isArray(quranData) || quranData.length === 0) {
+  //   return (
+  //     <div className="flex items-center justify-center p-8">
+  //       <div className="text-lg text-muted-foreground">Loading the Noble Quran...</div>
+  //     </div>
+  //   );
+  // }
+
+  if (loading) {
     return (
       <div className="flex items-center justify-center p-8">
-        <div className="text-lg text-muted-foreground">Loading the Noble Quran...</div>
+        <div className="text-lg text-muted-foreground">
+          Loading the Noble Quran...
+        </div>
+      </div>
+    );
+  }
+
+  if (!quranData || !Array.isArray(quranData) || quranData.length === 0) {
+    return (
+      <div className="flex items-center justify-center p-8 text-red-500">
+        Failed to load Quran data.
       </div>
     );
   }
 
   const currentSurah = quranData.find(chapter => chapter.id === selectedSurah) || quranData[0];
   const versesPerPage = 5;
-  const totalPages = Math.ceil(currentSurah.verses.length / versesPerPage);
+  // const totalPages = Math.ceil(currentSurah.verses.length / versesPerPage);
   const startIndex = currentPage * versesPerPage;
-  const currentVerses = currentSurah.verses.slice(startIndex, startIndex + versesPerPage);
+  // const currentVerses = currentSurah.verses.slice(startIndex, startIndex + versesPerPage);
+  const verses = currentSurah.verses ?? [];
+  const totalPages = Math.ceil(verses.length / versesPerPage);
+  const currentVerses = verses.slice(startIndex, startIndex + versesPerPage);
+
+  
 
   const handleSurahChange = (value: string) => {
     setSelectedSurah(parseInt(value));
